@@ -1,14 +1,6 @@
 # MT Exercise 3: Pytorch RNN Language Models
-
-This repo shows how to train neural language models using [Pytorch example code](https://github.com/pytorch/examples/tree/master/word_language_model). Thanks to Emma van den Bold, the original author of these scripts. 
-
-# Requirements
-
-- This only works on a Unix-like system, with bash.
-- Python 3 must be installed on your system, i.e. the command `python3` must be available
-- Make sure virtualenv is installed on your system. To install, e.g.
-
-    `pip install virtualenv`
+## Jenifer Leleany Meyer (jenmey)
+#### I am aware, that the scores I get are not very great. This is due to the large dataset and limited training time, but I am sure, that the numbers are still analysable.
 
 # Changes
 
@@ -22,20 +14,17 @@ Added a function to `scripts/tools/pytorch-examples/word_language_model/main.py`
 
 Added calls to the `generate.sh` file, to get generations from the differently trained dropouts (0.0, 0.1, 0.3, 0.6, 0.9).
 
----> plots
+Added `get_plot.sh` to the scripts. This `.sh` file calls `make_tables_and_plot.py` which collects the logging from the 
 
 # Steps
 
-Clone this repository in the desired place:
-
-    git clone https://github.com/moritz-steiner/mt-exercise-03
-    cd mt-exercise-03
-
-Create a new virtualenv that uses Python 3. Please make sure to run this command outside of any virtual Python environment:
+Create a new virtualenv that uses Python 3:
 
     ./scripts/make_virtualenv.sh
 
-**Important**: Then activate the env by executing the `source` command that is output by the shell script above.
+Activate virtual environment:
+
+    source scripts/venvs/torch3/bin/activate
 
 Download and install required software:
 
@@ -49,8 +38,10 @@ Train a model:
 
     ./scripts/train.sh
 
-The training process can be interrupted at any time, and the best checkpoint will always be saved.
-
-Generate (sample) some text from a trained model with:
+Generate some text from a trained model with:
 
     ./scripts/generate.sh
+
+Create summary of perplexity scores of different dropout value models and create line plot containing these scores:
+
+    ./scrips/get_plot.sh
