@@ -10,6 +10,20 @@ This repo shows how to train neural language models using [Pytorch example code]
 
     `pip install virtualenv`
 
+# Changes
+
+The `download_data.sh` file was modified to download "The Complete Works of William Shakespeare" from Project Gutenberg. The preprocessing steps remain the same, but the input files are now Shakespeare.
+
+changed vocabulary size in the preprocessing step from $5000$ to $7000$.
+
+Additional steps with varying dropout values were added to the `train.sh` file. The dopout values used are `0.0, 0.1, 0.3, 0.6, 0.9`.
+
+Added a function to `scripts/tools/pytorch-examples/word_language_model/main.py` that writes all the logging into a csv-file, when an output file is definedd.
+
+Added calls to the `generate.sh` file, to get generations from the differently trained dropouts (0.0, 0.1, 0.3, 0.6, 0.9).
+
+---> plots
+
 # Steps
 
 Clone this repository in the desired place:
@@ -40,5 +54,3 @@ The training process can be interrupted at any time, and the best checkpoint wil
 Generate (sample) some text from a trained model with:
 
     ./scripts/generate.sh
-
-
